@@ -1,16 +1,14 @@
-<table xmlns:th="http://www.w3.org/1999/xhtml">
-    <thead>
+<table>
     <tr>
         <th>제목</th>
-        <th>작성일시</th>
+        <th>내용</th>
     </tr>
-    </thead>
-    <tbody>
     <tr th:each="article : ${articleList}">
-        <td th:text="${article.subject}"></td>
-        <td th:text="${article.createDate}"></td>
+        <td>
+            <a th:href="@{|/article/detail/${article.id}|}" th:text="${article.title}"></a>
+        </td>
+        <td th:text="${article.content}"></td>
     </tr>
-    </tbody>
 </table>
 
-<a th:href="@{/article/create}" class="btn btn-primary" method="post">등록</a>
+<a th:href="@{/article/create}">등록</a>

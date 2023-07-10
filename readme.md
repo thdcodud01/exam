@@ -9,7 +9,7 @@
 - 리스트 페이지에서 등록버튼 누르면 create로 redirect 를 시켜놨는데 405에러. article_list.html 템플릿 파일에서 등록 버튼을 추가하고 
   버튼에 th:href="@{/article/create}"를 사용하여 클릭 시 /article/create 경로로 이동하도록 설정해야하는것은 그려짐.
 - Controller의 create 메서드에서 @PostMapping("/create") 어노테이션을 사용해서 POST 요청으로 하고,
-  메서드 내에서 articleService.create(content)를 호출해서 게시글 등록,
+   메서드 내에서 articleService.create(content)를 호출해서 게시글 등록,
   등록이 완료되면 return "redirect:/article/list";를 사용하여 게시글 리스트 페이지로 리다이렉트 시켜야한다고 생각.
 - 게시글 상세 페이지에서 목록 버튼을 클릭하면 게시글 리스트 페이지로 이동,
   article_detail.html 템플릿 파일에서 목록 버튼을 추가를 한 후에 버튼에 th:href="@{/article/list}"를 사용하여 
