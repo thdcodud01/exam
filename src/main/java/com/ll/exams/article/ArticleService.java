@@ -10,6 +10,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 @Service
 public class ArticleService {
+
     private final ArticleRepository articleRepository;
 
     public void create(String title, String content) {
@@ -27,5 +28,4 @@ public class ArticleService {
         Optional<Article> article = this.articleRepository.findById(id);
         return article.get();
     }
-
 }

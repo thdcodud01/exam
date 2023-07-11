@@ -6,11 +6,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
+
 @RequiredArgsConstructor
 @Controller
 public class ArticleController {
 
     private final ArticleService articleService;
+
     @GetMapping("/article/list")
     public String list(Model model) {
         List<Article> articleList = this.articleService.getList();
@@ -30,7 +33,7 @@ public class ArticleController {
     }
 
     @GetMapping("/article/detail/{id}")
-    public String detail(Model model, @PathVariable("id") Integer id){
+    public String detail(Model model, @PathVariable ("id") Integer id) {
         Article article = this.articleService.getArticle(id);
         model.addAttribute("article", article);
         return "article_detail";
